@@ -1,1 +1,6 @@
-OI Teste
+{% extends "layout.html.twig" %}
+{% block content %}
+    {% for country in countries %}
+        {{ country.getCountryName() }}
+    {% endfor %}
+{% endblock %}
