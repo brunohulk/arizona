@@ -21,6 +21,10 @@ $app->register(new MongoDBServiceProvider(), [
     ]
 ]);
 
+$app['csv'] = function ($app) {
+    return new Resources\Csv($app['csv_file']);
+};
+
 $app['repository.country'] = function ($app) {
     return new Repository\Country($app);
 };

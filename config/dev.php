@@ -19,3 +19,4 @@ $app->register(new WebProfilerServiceProvider(), array(
 
 $app['host_country_data'] = "http://www.umass.edu/microbio/rasmol/country-.txt";
 $app['db_name'] = 'arizona';
+$app['csv_file'] = "/tmp/countries.csv";
