@@ -2,13 +2,13 @@
 {% block content %}
     <table class="table table-striped table-bordered">
         <tr>
-            <th style="text-align: center">Código do país</th>
             <th style="text-align: center">Nome do país</th>
+            <th style="text-align: center">Código do país</th>
         </tr>
         {% for country in countries %}
             <tr>
-                <td>{{ country.getCountryCode() }}</td>
                 <td>{{ country.getCountryName() }}</td>
+                <td>{{ country.getCountryCode() }}</td>
             </tr>
         {% endfor %}
     </table>
