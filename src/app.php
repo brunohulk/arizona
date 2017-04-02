@@ -11,6 +11,16 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(new AssetServiceProvider());
 $app->register(new TwigServiceProvider());
 $app->register(new HttpFragmentServiceProvider());
+
+
+$app['model.country'] = function ($app) {
+    return new Model\Country(
+        new GuzzleHttp\Client(
+            [ 'base_uri' => $app['host_country_data']]
+        )
+    );
+};
+
 $app['twig'] = $app->extend('twig', function ($twig, $app) {
     // add custom globals, filters, tags, ...
 

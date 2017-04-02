@@ -17,7 +17,20 @@ $console
     ->setDescription('My command description')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
         // do something
-    })
+    });
 ;
+
+$console
+    ->register("generate-data-countries")
+    ->setDefinition(array(
+    ))
+    ->setDescription('Get data countries and insert into MongoDB')
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+        $output->write($app['host_country_data']);
+        $output->writeln("------Retrieve data from internet--------");
+        $countries = $app['model.country']->getCountriesList()
+        ;
+        $output->writeln("------Inserting data into database--------");
+    });
 
 return $console;
