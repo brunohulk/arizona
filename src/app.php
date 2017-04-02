@@ -21,16 +21,17 @@ $app->register(new MongoDBServiceProvider(), [
     ]
 ]);
 
+$app['repository.country'] = function ($app) {
+    return new Repository\Country($app);
+};
+
 $app['model.country'] = function ($app) {
     return new Model\Country(
         new GuzzleHttp\Client(
             [ 'base_uri' => $app['host_country_data']]
-        )
+        ),
+        $app['repository.country']
     );
-};
-
-$app['repository.country'] = function ($app) {
-    return new Repository\Country($app);
 };
 
 $app['twig'] = $app->extend('twig', function ($twig, $app) {

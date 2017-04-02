@@ -9,10 +9,12 @@ use GuzzleHttp\Client;
 class Country
 {
     private $guzzleClient;
+    private $countryRepository;
 
-    public function __construct(Client $client)
+    public function __construct(Client $client, \Repository\Country $repository)
     {
         $this->guzzleClient = $client;
+        $this->countryRepository = $repository;
     }
 
     public function getCountriesList() : Countries
@@ -20,6 +22,20 @@ class Country
         $response = $this->guzzleClient->request('GET');
         $textResponse = $response->getBody()->getContents();
         return $this->parseResponse($textResponse);
+    }
+
+    public function countriesListOrderByName($order) :Countries
+    {
+        $countries = $this->countryRepository->countriesOrderByCountryName($order);
+        $countriesArray = iterator_to_array($countries);
+
+        $countriesCollection = new Countries();
+        foreach ($countriesArray as $country) {
+            $countriesCollection->add(
+                new CountryEntity($country->country_code, $country->country_name)
+            );
+        }
+        return $countriesCollection;
     }
 
     private function parseResponse(string $text) : Countries
