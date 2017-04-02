@@ -29,6 +29,7 @@ class Country
 
     public function countriesListOrderByName($order) :Countries
     {
+        $order = (int) $order;
         $countries = $this->countryRepository->countriesOrderByCountryName($order);
         $countriesArray = iterator_to_array($countries);
 

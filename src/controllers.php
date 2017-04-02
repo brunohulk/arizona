@@ -15,17 +15,15 @@ $app->get('/', function () use ($app) {
 ->bind('homepage');
 
 $app->get('/html', function (Request $request) use ($app) {
-    $order = (int) $request->get('order');
-    $countries = $app['model.country']->countriesListOrderByName($order);
+    $countries = $app['model.country']->countriesListOrderByName($request->get('order'));
 
     return $app['twig']->render('render.html.twig', array('countries' => $countries));
 })->bind('render');
 
 $app->get('/csv', function (Request $request) use ($app) {
-    $order = (int) $request->get('order');
-    $countries = $app['model.country']->countriesListOrderByName($order);
-
+    $countries = $app['model.country']->countriesListOrderByName($request->get('order'));
     $file = $app['csv']->export($countries);
+
     return $app->sendFile($file, 200, array('Content-type' => 'text/csv'))->setContentDisposition(
         'attachment',
         'countries_list.csv'
