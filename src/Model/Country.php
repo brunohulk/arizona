@@ -5,7 +5,6 @@ namespace Model;
 use Entity\Countries;
 use Entity\Country as CountryEntity;
 use GuzzleHttp\Client;
-use Symfony\Component\Validator\Tests\Fixtures\Entity;
 
 class Country
 {

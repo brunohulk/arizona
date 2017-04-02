@@ -26,11 +26,13 @@ $console
     ))
     ->setDescription('Get data countries and insert into MongoDB')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        $output->write($app['host_country_data']);
+        $countryRepository = $app['repository.country'];
         $output->writeln("------Retrieve data from internet--------");
         $countries = $app['model.country']->getCountriesList();
+
         $output->writeln("------Inserting data into database--------");
-        $app['repository.country']->insertMany($countries);
+        $countriesArray = $countryRepository->objectToArray($countries);
+        $countryRepository->insertMany($countriesArray);
     });
 
 return $console;
