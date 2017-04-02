@@ -31,7 +31,7 @@ $console
         $countries = $app['model.country']->getCountriesList();
 
         $output->writeln("------Inserting data into database--------");
-        $countriesArray = $countryRepository->objectToArray($countries);
+        $countriesArray = $countryRepository::objectToArray($countries);
         $countryRepository->insertMany($countriesArray);
     });
 

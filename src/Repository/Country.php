@@ -14,14 +14,13 @@ class Country
         $this->mongodb = $app['mongodb']->{$app['db_name']}->countries;
     }
 
-    #TODO Alterar para uma coleção de países ao invés de um array
     public function insertMany(array $countries)
     {
         $this->mongodb->insertMany($countries);
     }
 
-
-    public function objectToArray(Countries $countries) : array
+    #TODO Método estático =( por causa do teste, estudar uma melhor forma
+    public static function objectToArray(Countries $countries) : array
     {
         $countries_list = [];
         foreach ($countries as $country) {
