@@ -23,7 +23,8 @@
         "symfony/twig-bridge": "~2.8|3.0.*",
         "symfony/validator": "~2.8|3.0.*",
         "guzzlehttp/guzzle": "^6.2",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.0",
+        "lalbert/silex-mongodb": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.0",

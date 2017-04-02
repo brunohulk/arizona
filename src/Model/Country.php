@@ -31,7 +31,7 @@ class Country
         $countries = [];
         foreach ($response_as_array as $line) {
             preg_match('/(\w*)\s{3}(.*)/', $line, $matches);
-            $countries[$matches[1]] = $matches[2];
+            $countries[] = ["CountryCode" => $matches[1], "CountryName" => $matches[2]];
         }
 
         return $countries;

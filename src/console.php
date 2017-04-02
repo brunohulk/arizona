@@ -28,9 +28,9 @@ $console
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
         $output->write($app['host_country_data']);
         $output->writeln("------Retrieve data from internet--------");
-        $countries = $app['model.country']->getCountriesList()
-        ;
+        $countries = $app['model.country']->getCountriesList();
         $output->writeln("------Inserting data into database--------");
+        $app['repository.country']->insertMany($countries);
     });
 
 return $console;

@@ -31,9 +31,9 @@ class CountryModelTest extends TestCase
 
         $this->assertInternalType('array', $countriesList);
         $this->assertCount(252, $countriesList, "It must return 252 countries");
-        $this->assertEquals(current($countriesList), 'Andorra');
-        $this->assertEquals($countriesList['IO'], 'British Indian Ocean Territory');
-        $this->assertEquals($countriesList['CI'], "Cote D'Ivoire (Ivory Coast)");
-        $this->assertEquals(end($countriesList), 'Nato field');
+        $this->assertEquals(current($countriesList)['CountryName'], 'Andorra');
+        $this->assertEquals($countriesList['192']['CountryName'], "Svalbard and Jan Mayen Islands");
+        $this->assertEquals($countriesList['192']['CountryCode'], "SJ");
+        $this->assertEquals(end($countriesList)['CountryName'], 'Nato field');
     }
 }
