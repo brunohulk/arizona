@@ -9,9 +9,6 @@ class Country
 {
     private $mongodb;
 
-    const ORDER_ASC = 1;
-    const ORDER_DESC = -1;
-
     public function __construct(Application $app)
     {
         $this->mongodb = $app['mongodb']->{$app['db_name']}->countries;
@@ -22,7 +19,7 @@ class Country
         $this->mongodb->insertMany($countries);
     }
 
-    public function countriesOrderByCountryName($order = self::ORDER_ASC)
+    public function countriesOrderByCountryName($order = \Model\Country::ORDER_ASC)
     {
         return $this->mongodb->find([], ['sort' => ['country_name' => $order]]);
     }

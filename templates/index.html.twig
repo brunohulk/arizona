@@ -1,16 +1,24 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    Gerar lista de países
-    {{ test }}
-    <a href="/html">
-        <button type="buttons">
-            HTML
-        </button>
-    </a>
-    <a href="/csv">
-        <button type="buttons">
-            CSV
-        </button>
-    </a>
+    <h1>Gerar lista de países</h1>
+    <div class="row">
+        <h4>Ordenar países</h4>
+        <form autocomplete="off">
+            <input type="radio" name="order" value="1" checked>Crescente
+            <input type="radio" name="order" value="-1">Decrescente
+        </form>
+    </div>
+    <div class="row">
+        <a href="/html?order=1" id="html">
+            <button type="buttons" class="btn btn-default btn-lg">
+                HTML
+            </button>
+        </a>
+        <a href="/csv?order=1" id="csv">
+            <button type="buttons" class="btn btn-default btn-lg">
+                CSV
+            </button>
+        </a>
+    </div>
 {% endblock %}

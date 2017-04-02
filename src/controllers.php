@@ -15,16 +15,16 @@ $app->get('/', function () use ($app) {
 ->bind('homepage');
 
 
-$app->get('/html', function () use ($app) {
-    $countries = $app['model.country']->countriesListOrderByName(Repository\Country::ORDER_ASC);
-    return $app['twig']->render('render.html.twig', array($countries));
-});
+$app->get('/html', function (Request $request) use ($app) {
+    $order = (int) $request->get('order');
+    $countries = $app['model.country']->countriesListOrderByName($order);
+    return $app['twig']->render('render.html.twig', array('countries' => $countries));
+})->bind('render');
 
 $app->get('/csv', function () use ($app) {
 });
 
-$app->error(function (\Exception $e, Request $request, $code) use ($app) {
-
+$app->error(function (\Exception $exception, Request $request, $code) use ($app) {
     if ($app['debug']) {
         return;
     }

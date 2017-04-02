@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bf91e074fcbb7a4090a22427ff851a5",
+    "content-hash": "3b14bef70ad50fc62dc2af24cd196327",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -720,16 +720,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.0.3",
+            "version": "5.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "4e99e1c4f9b05cbf4d6e84b100b3ff4107cf8cd1"
+                "reference": "37bbf491e6b585267ef1e0cbb0056f5c00ebf91c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4e99e1c4f9b05cbf4d6e84b100b3ff4107cf8cd1",
-                "reference": "4e99e1c4f9b05cbf4d6e84b100b3ff4107cf8cd1",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/37bbf491e6b585267ef1e0cbb0056f5c00ebf91c",
+                "reference": "37bbf491e6b585267ef1e0cbb0056f5c00ebf91c",
                 "shasum": ""
             },
             "require": {
@@ -779,7 +779,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-06T14:22:16+00:00"
+            "time": "2017-04-02T07:46:32+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -969,16 +969,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.0.11",
+            "version": "6.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "de3690a9f4109e3ef0f36e0ba1227e986818275b"
+                "reference": "e821e84175ad1eb6679f6ec7efa3820263dcb637"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/de3690a9f4109e3ef0f36e0ba1227e986818275b",
-                "reference": "de3690a9f4109e3ef0f36e0ba1227e986818275b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e821e84175ad1eb6679f6ec7efa3820263dcb637",
+                "reference": "e821e84175ad1eb6679f6ec7efa3820263dcb637",
                 "shasum": ""
             },
             "require": {
@@ -1047,7 +1047,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-03-29T12:34:07+00:00"
+            "time": "2017-04-02T15:46:24+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -3961,6 +3961,58 @@
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
             "time": "2017-02-28T13:16:45+00:00"
+        },
+        {
+            "name": "twig/extensions",
+            "version": "v1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig-extensions.git",
+                "reference": "f0bb8431c8691f5a39f1017d9a5967a082bf01ff"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig-extensions/zipball/f0bb8431c8691f5a39f1017d9a5967a082bf01ff",
+                "reference": "f0bb8431c8691f5a39f1017d9a5967a082bf01ff",
+                "shasum": ""
+            },
+            "require": {
+                "twig/twig": "~1.20|~2.0"
+            },
+            "require-dev": {
+                "symfony/translation": "~2.3"
+            },
+            "suggest": {
+                "symfony/translation": "Allow the time_diff output to be translated"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_Extensions_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Common additional features for Twig that do not directly belong in core",
+            "homepage": "http://twig.sensiolabs.org/doc/extensions/index.html",
+            "keywords": [
+                "i18n",
+                "text"
+            ],
+            "time": "2016-10-25T17:34:14+00:00"
         },
         {
             "name": "twig/twig",

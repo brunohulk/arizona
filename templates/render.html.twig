@@ -1,6 +1,15 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-    {% for country in countries %}
-        {{ country.getCountryName() }}
-    {% endfor %}
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th style="text-align: center">Código do país</th>
+            <th style="text-align: center">Nome do país</th>
+        </tr>
+        {% for country in countries %}
+            <tr>
+                <td>{{ country.getCountryCode() }}</td>
+                <td>{{ country.getCountryName() }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

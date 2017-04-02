@@ -11,6 +11,9 @@ class Country
     private $guzzleClient;
     private $countryRepository;
 
+    const ORDER_ASC = 1;
+    const ORDER_DESC = -1;
+
     public function __construct(Client $client, \Repository\Country $repository)
     {
         $this->guzzleClient = $client;
