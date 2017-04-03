@@ -79,6 +79,7 @@ Rodar os testes
 Escrevi alguns testes de unidade para cobrir a lógica da aplicação, porém não neste presente momento ainda não configurei
 corretamento o phpunit.xml.dist =(, portando eles devem ser rodados separadamente e arquivo por arquivo.
 .. code-block:: console
+
     $ phpunit tests/Unit/Repository/CountryTest.php
     $ phpunit tests/Unit/Model/CountryModelTest.php
     $ phpunit tests/Unit/Resources/CsvTest.php
@@ -98,6 +99,6 @@ Bruno Borges - http://brunoborges.info
 
 Enjoy!
 
-.. _Escopo:: https://gist.github.com/ivanrosolen/ab14da0485bcc24a2ca3ac0cff351e56
-.. _PSR-2:: http://www.php-fig.org/psr/psr-2/
+.. _Escopo: https://gist.github.com/ivanrosolen/ab14da0485bcc24a2ca3ac0cff351e56
+.. _PSR-2: http://www.php-fig.org/psr/psr-2/
 .. _PHP-CS: https://github.com/squizlabs/PHP_CodeSniffer
