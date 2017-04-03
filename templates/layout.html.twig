@@ -3,7 +3,7 @@
     <head>
         <title>Aplicação teste Arizona - Bruno Borges</title>
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" type="text/css" />
-        <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
@@ -40,10 +40,13 @@
                 {% block content %}{% endblock %}
             </div>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
         <script>
             $(function(){
+                $('#html').attr('href', '/html?order=' + $('[name=order]:checked').val());
+                $('#csv').attr('href', '/csv?order=' + $('[name=order]:checked').val());
+
                 $('[name=order]').change(function(){
                     $('#html').attr('href', '/html?order=' + $(this).val());
                     $('#csv').attr('href', '/csv?order=' + $(this).val());

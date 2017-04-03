@@ -12,10 +12,9 @@ $app->register(new ServiceControllerServiceProvider());
 $app->register(new AssetServiceProvider());
 $app->register(new TwigServiceProvider(), ['twig.options' => array('debug' => true)]);
 $app->register(new HttpFragmentServiceProvider());
-
 $app->register(new MongoDBServiceProvider(), [
     'mongodb.config' => [
-        'server' => 'mongodb://localhost:27017', #TODO mover para arquivo de configuração
+        'server' => 'mongodb://localhost:27017',
         'options' => [],
         'driverOptions' => []
     ]
