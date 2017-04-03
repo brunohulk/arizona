@@ -5,16 +5,15 @@ Teste desenvolvido com o framework Silex, seguindo o `Escopo`_
 
 Requirementos
 ----------------------------
-PHP 7
-Apache ou Nginx
-MongoDb
+* PHP 7
+* Apache ou Nginx
+* MongoDb
 
 Instalar dependências
 ----------------------------
 Como quase todo o projeto hoje em dia em PHP é necessário utilizar o composer para instalar
 as dependências do projeto.
 .. code-block:: console
-
     $ composer install
 
 Configuração
@@ -52,12 +51,14 @@ Iniciar a aplicação
 É possível iniciar a aplicação utilizando os comandos abaixo:
 
 .. code-block:: console
+
     $ cd path/app
     $ COMPOSER_PROCESS_TIMEOUT=0 composer run
 
 ou
 
 .. code-block:: console
+
     $ cd path/app
     $ php -S localhost:8888 -t web
 
@@ -75,7 +76,7 @@ Adotei o padrão de codificação da `PSR-2`_ com uma pequena ajuda do `PHP-CS`_
 
 Rodar os testes
 ----------------------------
-Escrevi alguns testes de unidade para cobrir a lógica do teste, porém não neste presente momento ainda não configurei
+Escrevi alguns testes de unidade para cobrir a lógica da aplicação, porém não neste presente momento ainda não configurei
 corretamento o phpunit.xml.dist =(, portando eles devem ser rodados separadamente e arquivo por arquivo.
 .. code-block:: console
     $ phpunit tests/Unit/Repository/CountryTest.php
