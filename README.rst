@@ -1,77 +1,102 @@
-Silex Skeleton
-==============
+Teste Arizona - Bruno Borges
+============================
 
-Welcome to the Silex Skeleton - a fully-functional Silex application that you
-can use as the skeleton for your new applications.
+Teste desenvolvido com o framework Silex, seguindo o `Escopo`_
 
-This document contains information on how to start using the Silex Skeleton.
+Requirementos
+----------------------------
+PHP 7
+Apache ou Nginx
+MongoDb
 
-Creating a Silex Application
+Instalar dependências
+----------------------------
+Como quase todo o projeto hoje em dia em PHP é necessário utilizar o composer para instalar
+as dependências do projeto.
+.. code-block:: console
+
+    $ composer install
+
+Configuração
+----------------------------
+A aplicação está já está pré-configurada para os ambientes de Dev e Prod:
+.. code-block:: php
+    $app['host_country_data'] = "http://www.umass.edu/microbio/rasmol/country-.txt";
+    $app['db_name'] = 'arizona';
+    $app['csv_file'] = "/tmp/countries.csv";
+
+O host do banco de dados também já está configurado no service provider do mongo no arquivo app.php conforme abaixo:
+.. code-block:: php
+    $app->register(new MongoDBServiceProvider(), [
+        'mongodb.config' => [
+            'server' => 'mongodb://localhost:27017',
+            'options' => [],
+            'driverOptions' => []
+        ]
+    ]);
+
+Popular banco de dados
 ----------------------------
 
-Silex uses `Composer`_ to ease the creation of a new project:
-
+Para executar o teste é necessário popular o banco de dados, para o teste foi escolhido o
+MongoDb, através do comando abaixo é possível fazer isso. Esse command utiliza guzzle como client para
+recuperar os dados do host remoto dado no scopo do site, após isso os dadis são inseridos em lote na
+collection `countries` no database `arizona`
 .. code-block:: console
 
-    $ composer create-project fabpot/silex-skeleton path/to/install "~2.0"
+    $ bin/console generate-data-countries
 
-Composer will create a new Silex project under the `path/to/install` directory.
-
-Browsing the Demo Application
+Iniciar a aplicação
 -----------------------------
 
-Congratulations! You're now ready to use Silex.
-
-To see a real-live Silex page in action, start the PHP built-in web server with
-command:
+É possível iniciar a aplicação utilizando os comandos abaixo:
 
 .. code-block:: console
-
-    $ cd path/to/install
+    $ cd path/app
     $ COMPOSER_PROCESS_TIMEOUT=0 composer run
 
-Then, browse to http://localhost:8888/index_dev.php/
+ou
 
-Getting started with Silex
+.. code-block:: console
+    $ cd path/app
+    $ php -S localhost:8888 -t web
+
+O primeiro comando é um aliás para o segundo.
+
+Acessar aplicaçao
 --------------------------
 
-This distribution is meant to be the starting point for your Silex applications.
+Para acessar a aplicação basta abrir o navegador e acessar: http://localhost:8888
 
-A great way to start learning Silex is via the `Documentation`_, which will
-take you through all the features of Silex.
+Coding Standards
+---------------------------
 
-What's inside?
----------------
+Adotei o padrão de codificação da `PSR-2`_ com uma pequena ajuda do `PHP-CS`_ =D
 
-The Silex Skeleton is configured with the following service providers:
+Rodar os testes
+----------------------------
+Escrevi alguns testes de unidade para cobrir a lógica do teste, porém não neste presente momento ainda não configurei
+corretamento o phpunit.xml.dist =(, portando eles devem ser rodados separadamente e arquivo por arquivo.
+.. code-block:: console
+    $ phpunit tests/Unit/Repository/CountryTest.php
+    $ phpunit tests/Unit/Model/CountryModelTest.php
+    $ phpunit tests/Unit/Resources/CsvTest.php
 
-* `ValidatorServiceProvider`_ - Provides a service for validating data. It is
-  most useful when used with the FormServiceProvider, but can also be used
-  standalone.
+TODO e Technical Debts
+----------------------------
+* Configurar bootstrap dos testes do PHPUNIT
+* Mover configuração do banco de dados para fora do provider
+* Serializar objetos do Mongo automaticamente ao invés de hidratá-los manualmente.
+* Escrever mais testes
+* Adicionar LOG
+* Melhorar tratamento de erros
 
-* `ServiceControllerServiceProvider`_ - As your Silex application grows, you
-  may wish to begin organizing your controllers in a more formal fashion.
-  Silex can use controller classes out of the box, but with a bit of work,
-  your controllers can be created as services, giving you the full power of
-  dependency injection and lazy loading.
-
-* `TwigServiceProvider`_ - Provides integration with the Twig template engine.
-
-* `WebProfilerServiceProvider`_ - Enable the Symfony web debug toolbar and
-  the Symfony profiler in your Silex application when developing.
-
-* `MonologServiceProvider`_ - Enable logging in the development environment.
-
-Read the `Providers`_ documentation for more details about Silex Service
-Providers.
+Autor
+----------------------------
+Bruno Borges - http://brunoborges.info
 
 Enjoy!
 
-.. _Composer: http://getcomposer.org/
-.. _Documentation: http://silex.sensiolabs.org/documentation
-.. _ValidatorServiceProvider: http://silex.sensiolabs.org/doc/providers/validator.html
-.. _ServiceControllerServiceProvider: http://silex.sensiolabs.org/doc/providers/service_controller.html
-.. _TwigServiceProvider: http://silex.sensiolabs.org/doc/providers/twig.html
-.. _WebProfilerServiceProvider: http://github.com/silexphp/Silex-WebProfiler
-.. _MonologServiceProvider: http://silex.sensiolabs.org/doc/providers/monolog.html
-.. _Providers: http://silex.sensiolabs.org/doc/providers.html
+.. _Escopo:: https://gist.github.com/ivanrosolen/ab14da0485bcc24a2ca3ac0cff351e56
+.. _PSR-2:: http://www.php-fig.org/psr/psr-2/
+.. _PHP-CS: https://github.com/squizlabs/PHP_CodeSniffer

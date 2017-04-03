@@ -25,7 +25,6 @@ class Country
         return iterator_to_array($countries);
     }
 
-    #TODO Método estático =( por causa do teste, estudar uma melhor forma
     public static function objectToArray(Countries $countries) : array
     {
         $countries_list = [];
