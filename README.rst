@@ -81,7 +81,9 @@ corretamento o phpunit.xml.dist =(, portando eles devem ser rodados separadament
 .. code-block:: console
 
     $ phpunit tests/Unit/Repository/CountryTest.php
+
     $ phpunit tests/Unit/Model/CountryModelTest.php
+    
     $ phpunit tests/Unit/Resources/CsvTest.php
 
 TODO e Technical Debts
