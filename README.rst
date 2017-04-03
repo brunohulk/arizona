@@ -37,9 +37,9 @@ O host do banco de dados também já está configurado no service provider do mo
 Popular banco de dados
 ----------------------------
 
-Para executar o teste é necessário popular o banco de dados, para o teste foi escolhido o
-MongoDb, através do comando abaixo é possível fazer isso. Esse command utiliza guzzle como client para
-recuperar os dados do host remoto dado no scopo do site, após isso os dadis são inseridos em lote na
+Para executar o teste é necessário popular a base de dados, para esse teste o banco de dadis escolhido foi o
+MongoDb, com o comando a seguir é possível inserir os dados, esse command utiliza o guzzle como client para
+recuperar os dados do host remoto dado no scopo do site, após isso os dados são inseridos em lote na
 collection `countries` no database `arizona`
 .. code-block:: console
 
@@ -76,14 +76,14 @@ Adotei o padrão de codificação da `PSR-2`_ com uma pequena ajuda do `PHP-CS`_
 
 Rodar os testes
 ----------------------------
-Escrevi alguns testes de unidade para cobrir a lógica da aplicação, porém não neste presente momento ainda não configurei
-corretamento o phpunit.xml.dist =(, portando eles devem ser rodados separadamente e arquivo por arquivo.
+Escrevi alguns testes de unidade para cobrir a lógica da aplicação, porém neste presente momento ainda não configurei
+corretamente o phpunit.xml.dist =(, portanto eles devem ser rodados separadamente e arquivo por arquivo:
 .. code-block:: console
 
     $ phpunit tests/Unit/Repository/CountryTest.php
 
     $ phpunit tests/Unit/Model/CountryModelTest.php
-    
+
     $ phpunit tests/Unit/Resources/CsvTest.php
 
 TODO e Technical Debts
