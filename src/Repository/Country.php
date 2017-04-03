@@ -21,7 +21,8 @@ class Country
 
     public function countriesOrderByCountryName($order = \Model\Country::ORDER_ASC)
     {
-        return $this->mongodb->find([], ['sort' => ['country_name' => $order]]);
+        $countries = $this->mongodb->find([], ['sort' => ['country_name' => $order]]);
+        return iterator_to_array($countries);
     }
 
     #TODO Método estático =( por causa do teste, estudar uma melhor forma

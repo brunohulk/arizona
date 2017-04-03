@@ -31,10 +31,9 @@ class Country
     {
         $order = (int) $order;
         $countries = $this->countryRepository->countriesOrderByCountryName($order);
-        $countriesArray = iterator_to_array($countries);
 
         $countriesCollection = new Countries();
-        foreach ($countriesArray as $country) {
+        foreach ($countries as $country) {
             $countriesCollection->add(
                 new CountryEntity($country->country_code, $country->country_name)
             );
